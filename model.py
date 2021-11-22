@@ -110,20 +110,69 @@ ops.node(72, 5100, 1800, 1687.5)
 
 print("OK！，木框架节点")
 
-# 支撑
-ops.fix(1, 1, 1, 1, 1, 1, 1)
-ops.fix(5, 1, 1, 1, 1, 1, 1)
-ops.fix(9, 1, 1, 1, 1, 1, 1)
-ops.fix(19, 1, 1, 1, 1, 1, 1)
-ops.fix(23, 1, 1, 1, 1, 1, 1)
-ops.fix(27, 1, 1, 1, 1, 1, 1)
-ops.fix(37, 1, 1, 1, 1, 1, 1)
-ops.fix(41, 1, 1, 1, 1, 1, 1)
-ops.fix(45, 1, 1, 1, 1, 1, 1)
-ops.fix(55, 1, 1, 1, 1, 1, 1)
-ops.fix(59, 1, 1, 1, 1, 1, 1)
-ops.fix(63, 1, 1, 1, 1, 1, 1)
+# 边界条件 浮搁柱脚
+# 滑动平板支撑单元
+# 固支点
+ops.node(1000001, 0, 0, 0)
+ops.node(1000005, 0, 1200, 0)
+ops.node(1000009, 0, 2400, 0)
+ops.node(10000019, 1650, 0, 0)
+ops.node(10000023, 1650, 1200, 0)
+ops.node(10000027, 1650, 2400, 0)
+ops.node(10000037, 3450, 0, 0)
+ops.node(10000041, 3450, 1200, 0)
+ops.node(10000045, 3450, 2400, 0)
+ops.node(10000055, 5100, 0, 0)
+ops.node(10000059, 5100, 1200, 0)
+ops.node(10000063, 5100, 2400, 0)
+ops.fix(1000001, 1, 1, 1, 1, 1, 1)
+ops.fix(1000005, 1, 1, 1, 1, 1, 1)
+ops.fix(1000009, 1, 1, 1, 1, 1, 1)
+ops.fix(10000019, 1, 1, 1, 1, 1, 1)
+ops.fix(10000023, 1, 1, 1, 1, 1, 1)
+ops.fix(10000027, 1, 1, 1, 1, 1, 1)
+ops.fix(10000037, 1, 1, 1, 1, 1, 1)
+ops.fix(10000041, 1, 1, 1, 1, 1, 1)
+ops.fix(10000045, 1, 1, 1, 1, 1, 1)
+ops.fix(10000055, 1, 1, 1, 1, 1, 1)
+ops.fix(10000059, 1, 1, 1, 1, 1, 1)
+ops.fix(10000063, 1, 1, 1, 1, 1, 1)
 
+ops.frictionModel('Coulomb', 1, 0.33)  # 库伦摩擦模型  薛建阳
+kInit = 164  # 薛建阳
+PMatTag = 1000001  # 释放抬升自由度
+ops.uniaxialMaterial('ENT', PMatTag, 1.0E10)
+TMatTag = 1000002  # 刚接
+ops.uniaxialMaterial('Elastic', TMatTag, 1.0E14)
+MyMatTag = 1000003  # 铰接
+ops.uniaxialMaterial('Elastic', MyMatTag, 1.0)
+MzMatTag = 1000004  # 铰接
+ops.uniaxialMaterial('Elastic', MzMatTag, 1.0)
+
+ops.element('flatSliderBearing', 1000001, 1000001, 1, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 1000005, 1000005, 5, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 1000009, 1000009, 9, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000019, 10000019, 19, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000023, 10000023, 23, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000027, 10000027, 27, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000037, 10000037, 37, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000041, 10000041, 41, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000045, 10000045, 45, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000055, 10000055, 55, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000059, 10000059, 59, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+ops.element('flatSliderBearing', 10000063, 10000063, 63, 1, kInit,
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
 print("OK！，柱脚模拟")
 
 # 本构及构架截面
