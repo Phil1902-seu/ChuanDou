@@ -149,30 +149,31 @@ ops.uniaxialMaterial('Elastic', MyMatTag, 1.0)
 MzMatTag = 1000004  # 铰接
 ops.uniaxialMaterial('Elastic', MzMatTag, 1.0)
 
+
 ops.element('flatSliderBearing', 1000001, 1000001, 1, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 1000005, 1000005, 5, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 1000009, 1000009, 9, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000019, 10000019, 19, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000023, 10000023, 23, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000027, 10000027, 27, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000037, 10000037, 37, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000041, 10000041, 41, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000045, 10000045, 45, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000055, 10000055, 55, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000059, 10000059, 59, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 ops.element('flatSliderBearing', 10000063, 10000063, 63, 1, kInit,
-            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag)
+            '-P', PMatTag, '-T', TMatTag, '-My', MyMatTag, '-Mz', MzMatTag, '-orient', 0, 0, 1, 0, 1, 0)
 print("OK！，柱脚模拟")
 
 # 本构及构架截面
