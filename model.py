@@ -864,24 +864,24 @@ alphaM = xDamp * (2 * omegaValues[0] * omegaValues[1]) / (omegaValues[0] + omega
 betaKcurr = 2. * xDamp / (omegaValues[0] + omegaValues[1])
 ops.rayleigh(alphaM, betaKcurr, 0, 0)
 
-# # 输出
-# ops.recorder('Node', '-file', "DataOut/node_2_accel.txt", '-time',  '-node', 2, '-dof', 1, 2, 'accel')
-# ops.recorder('Node', '-file', "DataOut/node_2_disp.txt", '-time',   '-node', 2, '-dof', 1, 2, 'disp')
-#
-#
-# print("Go Gravity Analysis")
-# Tol = 1.0e-8
-# ops.constraints('Transformation')
-# ops.numberer('RCM')
-# ops.system('UmfPack')
-# ops.test('EnergyIncr', Tol, 6)
-# ops.algorithm('Newton')
-# NstepGravity = 10  # apply gravity in 10 steps
-# DGravity = 1.0 / NstepGravity  # first load increment
-# ops.integrator('LoadControl', DGravity)
-# ops.analysis('Static')
-# ops.analyze(NstepGravity)
-#
-# ops.loadConst('-time', 0.0)
-#
-# print("Model Built")
+# 输出
+ops.recorder('Node', '-file', "DataOut/node_2_accel.txt", '-time',  '-node', 2, '-dof', 1, 2, 'accel')
+ops.recorder('Node', '-file', "DataOut/node_2_disp.txt", '-time',   '-node', 2, '-dof', 1, 2, 'disp')
+
+
+print("Go Gravity Analysis")
+Tol = 1.0e-8
+ops.constraints('Transformation')
+ops.numberer('RCM')
+ops.system('UmfPack')
+ops.test('EnergyIncr', Tol, 6)
+ops.algorithm('Newton')
+NstepGravity = 10  # apply gravity in 10 steps
+DGravity = 1.0 / NstepGravity  # first load increment
+ops.integrator('LoadControl', DGravity)
+ops.analysis('Static')
+ops.analyze(NstepGravity)
+
+ops.loadConst('-time', 0.0)
+
+print("Model Built")
