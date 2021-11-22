@@ -8,7 +8,7 @@ record = 'GMfiles/Elcentro_NS.txt'
 data = np.loadtxt(record)
 dt = 0.02
 nPts = len(data)
-iGMFactor = 0.07
+iGMFactor = 0.62
 ops.timeSeries('Path', 2, '-filePath', record, '-dt', dt, '-factor', iGMFactor)
 ops.pattern('UniformExcitation', 2, 1, '-accel', 2)
 ops.constraints('Transformation')
@@ -26,7 +26,7 @@ tCurrent = ops.getTime()
 # Perform the transient analysis
 test = {1: 'NormDispIncr', 2: 'RelativeEnergyIncr', 3: 'EnergyIncr', 4: 'RelativeNormUnbalance',
         5: 'RelativeNormDispIncr', 6: 'NormUnbalance'}
-algorithm = {1: 'KrylovNewton', 2: 'SecantNewton', 3: 'ModifiedNewton', 4: 'RaphsonNewton',
+algorithm = {1: 'ModifiedNewton', 2: 'SecantNewton', 3: 'KrylovNewton' , 4: 'RaphsonNewton',
              5: 'PeriodicNewton', 6: 'BFGS', 7: 'Broyden', 8: 'NewtonLineSearch'}
 tFinal = nPts * dt
 time = [tCurrent]
